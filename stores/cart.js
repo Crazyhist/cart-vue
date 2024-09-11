@@ -1,7 +1,7 @@
-import { createStore } from 'vuex'
+import { defineStore } from 'pinia'
 
-const store = createStore({
-	state: {
+export const useCartStore = defineStore('cart', {
+	state: () => ({
 		cart: [
 			{
 				id: 1,
@@ -35,7 +35,7 @@ const store = createStore({
 			},
 		],
 		installation: false,
-	},
+	}),
 	getters: {
 		cartItems: (state) => state.cart,
 		cartTotal: (state) => {
@@ -51,46 +51,27 @@ const store = createStore({
 		cartCount: (state) =>
 			state.cart.reduce((count, item) => count + item.quantity, 0),
 	},
-	mutations: {
-		ADD_ITEM(state, itemId) {
-			const item = state.cart.find((item) => item.id === itemId)
+	actions: {
+		addItem(itemId) {
+			const item = this.cart.find((item) => item.id === itemId)
 			if (item) {
 				item.quantity += 1
 			}
 		},
-		REMOVE_ITEM(state, itemId) {
-			const item = state.cart.find((item) => item.id === itemId)
+		removeItem(itemId) {
+			const item = this.cart.find((item) => item.id === itemId)
 			if (item.quantity > 1) {
 				item.quantity -= 1
 			}
 		},
-		DELETE_ITEM(state, itemId) {
-			state.cart = state.cart.filter((item) => item.id !== itemId)
+		deleteItem(itemId) {
+			this.cart = this.cart.filter((item) => item.id !== itemId)
 		},
-		CLEAR_CART(state) {
-			state.cart = []
+		clearCart() {
+			this.cart = []
 		},
-		TOGGLE_INSTALLATION(state) {
-			state.installation = !state.installation
-		},
-	},
-	actions: {
-		addItem({ commit }, itemId) {
-			commit('ADD_ITEM', itemId)
-		},
-		removeItem({ commit }, itemId) {
-			commit('REMOVE_ITEM', itemId)
-		},
-		deleteItem({ commit }, itemId) {
-			commit('DELETE_ITEM', itemId)
-		},
-		clearCart({ commit }) {
-			commit('CLEAR_CART')
-		},
-		toggleInstallation({ commit }) {
-			commit('TOGGLE_INSTALLATION')
+		toggleInstallation() {
+			this.installation = !this.installation
 		},
 	},
 })
-
-export default store

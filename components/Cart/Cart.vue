@@ -4,21 +4,22 @@
 			<h1 class="cart-header__title">
 				Ваша корзина
 				<span class="cart-header__count"
-					>{{ cartCount }} {{ getCorrectWord(cartCount) }}</span
+					>{{ cartStore.cartCount }}
+					{{ getCorrectWord(cartStore.cartCount) }}</span
 				>
 			</h1>
-			<button class="cart-header__clear" @click="clearCart">
+			<button class="cart-header__clear" @click="cartStore.clearCart">
 				Очистить корзину
 			</button>
 		</div>
 
 		<div class="cart-left">
-			<div v-for="item in cartItems" :key="item.id">
+			<div v-for="item in cartStore.cartItems" :key="item.id">
 				<CartItem
 					:item="item"
-					@addItem="addItem"
-					@removeItem="removeItem"
-					@deleteItem="deleteItem"
+					@addItem="cartStore.addItem"
+					@removeItem="cartStore.removeItem"
+					@deleteItem="cartStore.deleteItem"
 				/>
 			</div>
 
@@ -26,8 +27,7 @@
 				<label class="cart-installation__checkbox">
 					<input
 						type="checkbox"
-						v-model="installation"
-						@change="toggleInstallation"
+						v-model="cartStore.installation"
 						class="custom-checkbox"
 					/>
 				</label>
@@ -42,58 +42,21 @@
 
 		<div class="cart-right">
 			<CartSummary
-				:cartTotal="cartTotal"
-				:cartCount="cartCount"
-				:installation="installation"
+				:cartTotal="cartStore.cartTotal"
+				:cartCount="cartStore.cartCount"
+				:installation="cartStore.installation"
 			/>
 		</div>
 	</div>
 </template>
 
-<script>
-import { mapActions, mapGetters } from 'vuex'
-import CartItem from './CartItem.vue'
-import CartSummary from './CartSummary.vue'
+<script setup>
+import { useCartStore } from '@/stores/cart'
+import CartItem from '@/components/Cart/CartItem.vue'
+import CartSummary from '@/components/Cart/CartSummary.vue'
+import { getCorrectWord } from '@/utils/utils'
 
-export default {
-	components: {
-		CartItem,
-		CartSummary,
-	},
-	computed: {
-		...mapGetters(['cartItems', 'cartTotal', 'cartCount']),
-		installation() {
-			return this.$store.state.installation
-		},
-	},
-	methods: {
-		...mapActions([
-			'addItem',
-			'removeItem',
-			'deleteItem',
-			'toggleInstallation',
-			'clearCart',
-		]),
-		getCorrectWord(count) {
-			const lastDigit = count % 10
-			const lastTwoDigits = count % 100
-
-			if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
-				return 'товаров'
-			}
-
-			if (lastDigit === 1) {
-				return 'товар'
-			}
-
-			if (lastDigit >= 2 && lastDigit <= 4) {
-				return 'товара'
-			}
-
-			return 'товаров'
-		},
-	},
-}
+const cartStore = useCartStore()
 </script>
 
 <style scoped>

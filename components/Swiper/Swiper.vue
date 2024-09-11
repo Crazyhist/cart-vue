@@ -2,7 +2,7 @@
 	<div class="swiper-container">
 		<!-- Слайдер -->
 		<swiper
-			:modules="modules"
+			:modules="[Pagination, Navigation]"
 			:slides-per-view="4"
 			:space-between="30"
 			navigation
@@ -23,8 +23,6 @@
 					<button>Подробнее</button>
 				</div>
 			</swiper-slide>
-
-			<!-- Пагинация и навигационные кнопки уже будут работать, если модули подключены -->
 		</swiper>
 	</div>
 </template>
@@ -32,10 +30,8 @@
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
-
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-
 import { Pagination, Navigation } from 'swiper/modules'
 
 export default {
@@ -43,40 +39,9 @@ export default {
 		Swiper,
 		SwiperSlide,
 	},
-	setup() {
-		return {
-			modules: [Pagination, Navigation],
-		}
-	},
 	data() {
 		return {
 			viewedItems: [
-				{
-					name: 'BXC',
-					description:
-						'Вытяжное устройство для механической системы вентиляции',
-					price: '6848 - 56584',
-					image: '/img-swiper_1.png',
-				},
-				{
-					name: 'G2H',
-					description:
-						'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
-					price: '6848 - 56584',
-					image: '/img-swiper_2.png',
-				},
-				{
-					name: 'GHN',
-					description: 'Вытяжное устройство с датчиком присутствия',
-					price: '6848 - 56584',
-					image: '/img-swiper_3.png',
-				},
-				{
-					name: 'TDA',
-					description: 'Вытяжное устройство с датчиком присутствия',
-					price: '6848 - 56584',
-					image: '/img-swiper_4.png',
-				},
 				{
 					name: 'BXC',
 					description:

@@ -4,24 +4,20 @@
 			<img src="/cart-icon.svg" alt="Корзина" class="header-cart__icon" />
 			<div class="header-cart__info">
 				<p class="header-cart__text">Ваша корзина</p>
-				<p class="header-cart__details">{{ cartCount }} товара</p>
-				<p class="header-cart__price">{{ cartTotal }} ₽</p>
+				<p class="header-cart__details">
+					{{ cartStore.cartCount }} {{ getCorrectWord(cartStore.cartCount) }}
+				</p>
+				<p class="header-cart__price">{{ cartStore.cartTotal }} ₽</p>
 			</div>
 		</div>
 	</header>
 </template>
 
-<script>
-export default {
-	computed: {
-		cartCount() {
-			return this.$store.getters.cartCount
-		},
-		cartTotal() {
-			return this.$store.getters.cartTotal
-		},
-	},
-}
+<script setup>
+import { useCartStore } from '@/stores/cart.js'
+import { getCorrectWord } from '@/utils/utils'
+
+const cartStore = useCartStore()
 </script>
 
 <style scoped>

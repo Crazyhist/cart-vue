@@ -110,6 +110,8 @@ export default {
 	font-size: 18px;
 	font-weight: 600;
 	margin-right: 55px;
+	width: 85px;
+	text-align: right;
 }
 
 .cart-item__remove {
