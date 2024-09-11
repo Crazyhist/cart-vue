@@ -4,8 +4,8 @@
 	<div class="container">
 		<Header />
 		<Cart />
-		<!-- <Swiper-test /> -->
 		<!-- <Swiper /> -->
+		<Swiper-test2 />
 	</div>
 </template>
 

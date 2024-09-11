@@ -133,7 +133,9 @@
     ],
     "jsx": "preserve",
     "jsxImportSource": "vue",
-    "types": [],
+    "types": [
+      "swiper/vue"
+    ],
     "moduleResolution": "Bundler",
     "useDefineForClassFields": true,
     "noImplicitThis": true,
@@ -145,6 +147,8 @@
     "../**/*",
     "../node_modules/@pinia/nuxt/runtime",
     "../node_modules/@pinia/nuxt/dist/runtime",
+    "../node_modules/nuxt-swiper/runtime",
+    "../node_modules/nuxt-swiper/dist/runtime",
     "../node_modules/@nuxt/devtools/runtime",
     "../node_modules/@nuxt/devtools/dist/runtime",
     "../node_modules/@nuxt/telemetry/runtime",
@@ -157,6 +161,8 @@
     "../node_modules/nuxt/node_modules",
     "../node_modules/@pinia/nuxt/runtime/server",
     "../node_modules/@pinia/nuxt/dist/runtime/server",
+    "../node_modules/nuxt-swiper/runtime/server",
+    "../node_modules/nuxt-swiper/dist/runtime/server",
     "../node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/@nuxt/devtools/dist/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",

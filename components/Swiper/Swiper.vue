@@ -2,7 +2,6 @@
 	<div class="swiper-container">
 		<!-- Слайдер -->
 		<swiper
-			:modules="[Pagination, Navigation]"
 			:slides-per-view="4"
 			:space-between="30"
 			navigation
@@ -47,26 +46,33 @@ export default {
 					description:
 						'Вытяжное устройство для механической системы вентиляции',
 					price: '6848 - 56584',
-					image: '/img-swiper_1.png',
+					image: '../../public/img-swiper_1.jpg',
 				},
 				{
 					name: 'G2H',
 					description:
 						'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
 					price: '6848 - 56584',
-					image: '/img-swiper_2.png',
+					image: '../../public/img-swiper_1.jpg',
 				},
 				{
 					name: 'GHN',
 					description: 'Вытяжное устройство с датчиком присутствия',
 					price: '6848 - 56584',
-					image: '/img-swiper_3.png',
+					image: '../../public/img-swiper_1.jpg',
 				},
 				{
 					name: 'TDA',
 					description: 'Вытяжное устройство с датчиком присутствия',
 					price: '6848 - 56584',
-					image: '/img-swiper_4.png',
+					image: '../../public/img-swiper_1.jpg',
+				},
+				{
+					name: 'BXC',
+					description:
+						'Вытяжное устройство для механической системы вентиляции',
+					price: '6848 - 56584',
+					image: '../../public/img-swiper_1.jpg',
 				},
 			],
 		}
