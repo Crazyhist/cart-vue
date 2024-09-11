@@ -1,7 +1,15 @@
 <template>
 	<div class="viewed-products">
 		<h2 class="viewed-products__title">Просмотренные товары</h2>
-		<swiper :slides-per-view="4" :space-between="30" navigation pagination>
+		<swiper
+			:slides-per-view="4"
+			:space-between="30"
+			:navigation="true"
+			:modules="[Navigation, Pagination]"
+			:pagination="{
+				type: 'fraction',
+			}"
+		>
 			<swiper-slide
 				v-for="(product, index) in viewedItems"
 				:key="index"
@@ -24,6 +32,7 @@
 
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
