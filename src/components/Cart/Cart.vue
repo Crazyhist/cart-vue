@@ -3,7 +3,9 @@
 		<div class="cart-header">
 			<h1 class="cart-header__title">
 				Ваша корзина
-				<span class="cart-header__count">{{ cartCount }} товара</span>
+				<span class="cart-header__count"
+					>{{ cartCount }} {{ getCorrectWord(cartCount) }}</span
+				>
 			</h1>
 			<button class="cart-header__clear" @click="clearCart">
 				Очистить корзину
@@ -72,6 +74,24 @@ export default {
 			'toggleInstallation',
 			'clearCart',
 		]),
+		getCorrectWord(count) {
+			const lastDigit = count % 10
+			const lastTwoDigits = count % 100
+
+			if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+				return 'товаров'
+			}
+
+			if (lastDigit === 1) {
+				return 'товар'
+			}
+
+			if (lastDigit >= 2 && lastDigit <= 4) {
+				return 'товара'
+			}
+
+			return 'товаров'
+		},
 	},
 }
 </script>
@@ -86,13 +106,14 @@ export default {
 .cart-header {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: baseline;
+	max-width: 800px;
 	width: 100%;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
 
 .cart-header__title {
-	font-size: 24px;
+	font-size: 44px;
 	font-weight: bold;
 	color: #1f2432;
 	display: flex;
@@ -100,16 +121,17 @@ export default {
 }
 
 .cart-header__count {
-	margin-left: 10px;
+	margin-left: 20px;
+	margin-top: 18px;
 	font-size: 18px;
-	color: #6c757d;
+	color: #797b86;
 }
 
 .cart-header__clear {
 	background: none;
 	border: none;
-	color: #007bff;
-	font-size: 16px;
+	color: #797b86;
+	font-size: 14px;
 	cursor: pointer;
 	text-decoration: underline;
 }

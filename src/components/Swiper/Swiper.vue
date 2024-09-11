@@ -56,52 +56,52 @@ export default {
 					description:
 						'Вытяжное устройство для механической системы вентиляции',
 					price: '6848 - 56584',
-					image: '/img_1.jpg',
+					image: '/img-swiper_1.png',
 				},
 				{
 					name: 'G2H',
 					description:
 						'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
 					price: '6848 - 56584',
-					image: '/img_2.jpg',
+					image: '/img-swiper_2.png',
 				},
 				{
 					name: 'GHN',
 					description: 'Вытяжное устройство с датчиком присутствия',
 					price: '6848 - 56584',
-					image: '/img_3.jpg',
+					image: '/img-swiper_3.png',
 				},
 				{
 					name: 'TDA',
 					description: 'Вытяжное устройство с датчиком присутствия',
 					price: '6848 - 56584',
-					image: '/img_4.jpg',
+					image: '/img-swiper_4.png',
 				},
 				{
 					name: 'BXC',
 					description:
 						'Вытяжное устройство для механической системы вентиляции',
 					price: '6848 - 56584',
-					image: '/img_1.jpg',
+					image: '/img-swiper_1.png',
 				},
 				{
 					name: 'G2H',
 					description:
 						'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
 					price: '6848 - 56584',
-					image: '/img_2.jpg',
+					image: '/img-swiper_2.png',
 				},
 				{
 					name: 'GHN',
 					description: 'Вытяжное устройство с датчиком присутствия',
 					price: '6848 - 56584',
-					image: '/img_3.jpg',
+					image: '/img-swiper_3.png',
 				},
 				{
 					name: 'TDA',
 					description: 'Вытяжное устройство с датчиком присутствия',
 					price: '6848 - 56584',
-					image: '/img_4.jpg',
+					image: '/img-swiper_4.png',
 				},
 			],
 		}
@@ -116,19 +116,29 @@ export default {
 	padding: 20px 0;
 }
 
+.swiper-slide {
+	height: auto;
+	display: flex;
+	justify-content: center;
+}
 /* Стили для продукта */
 .product-card {
 	padding: 20px;
-	background-color: #fff;
+	background-color: #f6f8fa;
 	border-radius: 8px;
 	text-align: center;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	width: 245px;
+	height: 425px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .product-image {
-	width: 100px;
-	height: 100px;
-	margin-bottom: 10px;
+	width: 245px;
+	height: 245px;
+	margin-bottom: 5px;
+	margin-right: 10px;
 }
 
 button {
